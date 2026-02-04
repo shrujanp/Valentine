@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine 💘</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+  }
+
+  .card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255,0,100,0.6);
+  }
+
+  h1 {
+    color: #ff2f6e;
+  }
+
+  button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  #yes {
+    background: #ff2f6e;
+    color: white;
+  }
+
+  #no {
+    background: #555;
+    color: white;
+    position: absolute;
+  }
+
+  /* POPUPS */
+  .popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  img {
+    width: 280px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: 0 0 20px rgba(255,0,100,0.4);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Will you be my Valentine Bubba? 💖</h1>
+  <button id="yes">YES 😍</button>
+  <button id="no">NO 🙄</button>
+</div>
+
+<!-- PASSWORD POPUP -->
+<div class="popup" id="passwordPopup">
+  <div class="popup-content">
+    <h2>Enter the secret password 😏</h2>
+    <input type="password" id="passwordInput" placeholder="hint: feelings 👀">
+    <br><br>
+    <button onclick="checkPassword()">Unlock 💖</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+</div>
+
+<!-- LOVE POPUP -->
+<div class="popup" id="lovePopup">
+  <div class="popup-content">
+    <h2>YAYYYYY 💖💖💖</h2>
+    <p>You’re officially my Valentine 🥹✨</p>
+    <img src="us.jpg" alt="Us together">
+    <p>I love you sooooo much 😘</p>
+  </div>
+</div>
+
+<script>
+  const no = document.getElementById("no");
+  const yes = document.getElementById("yes");
+  const passwordPopup = document.getElementById("passwordPopup");
+  const lovePopup = document.getElementById("lovePopup");
+  const error = document.getElementById("error");
+
+  const correctPassword = "iloveyou"; // change if you want 💌
+
+  no.addEventListener("mouseover", () => {
+    no.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    no.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    no.innerText = "oh you like Shrujan more is it 😏";
+  });
+
+  yes.addEventListener("click", () => {
+    passwordPopup.style.display = "flex";
+  });
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value.toLowerCase();
+    if (input === correctPassword) {
+      passwordPopup.style.display = "none";
+      lovePopup.style.display = "flex";
+    } else {
+      error.innerText = "Wrong 😈 try again Bubba";
+    }
+  }
+</script>
+
+</body>
+</html>
